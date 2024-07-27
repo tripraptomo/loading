@@ -288,7 +288,7 @@ body:after {
  <body>
     <h1 class="judul-besar">Selamat Datang Di Situs KING403</h1>
 	<h2 class="judul-tengah">Akan Segera Menuju Situs Kami </h2>
-	<h3 id="countdown">10</h3>
+	<h3 id="countdown">12</h3>
 	<h4 class="judul-kecil">Mohon Menunggu</h4>
 	
   </header>
@@ -355,7 +355,7 @@ const intervalId = setInterval(() => {
 
  if (timeleft < 0) {
     clearInterval(intervalId);
-    countdownElement.textContent = 'TERJADI MASALAH SILAKAN HUBUNGI LIVECHAT KAMI!';
+    countdownElement.textContent = 'Waktu Habis!';
 
    
     window.location.href = "https://direct.lc.chat/17888589/"; 
@@ -366,7 +366,7 @@ const intervalId = setInterval(() => {
   </div>
 
   <script>
-   const waktuTunggu = 6000; 
+   const waktuTunggu = 6000; // 10 seconds in milliseconds
 
 setTimeout(redirectBasedOnDevice, waktuTunggu);
 
