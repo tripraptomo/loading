@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Struktur Kubus</title>
-  <style>
-    @property --color{
+    <title>Halaman Loading</title>
+<style>
+@property --color{
   syntax: '<percentage>';
   inherits: false;
   initial-value: 10%;
@@ -29,17 +29,31 @@
 }
 
 body {
-	margin: 0;
-	padding: 0;
-	width: 100vw;
-	height: 100vh;
-	overflow: hidden;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	perspective: 250vmin;
-	background: var(--bg);
+  text-align: center;
+  display: flex; /* Use flexbox for centering */
+  flex-direction: column; /* Arrange elements vertically */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  perspective: 250vmin;
+  background: var(--bg);
 }
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  text-align: center;
+  z-index: 1; /* Ensure text is above cuboids */
+}
+
+/* Rest of your CSS */
+
 
 /*
 body:after {
@@ -247,67 +261,122 @@ body:after {
 	   0% { --tone: 360; }
 	 100% { --tone: 0; }
 }
-	.countdown {
-  position: absolute;
-  top: 10px; /* Sesuaikan posisi atas */
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 2rem;
-  color: #fff;
 
+
+
+</style>
+<style>
+.judul-besar {
+    font-size: 6rem; }
+.judul-tengah {
+    font-size: 4rem; }
+.judul-kecil {
+    font-size: 3rem; }
+
+</style>
+<style>
+#countdown {
+    font-size: 8rem;
+    text-align: center;
+	color: red;
 }
-    </style>
+
+</style>
+
 </head>
-<body>
-  <div class="content">
-	  <div class="countdown"></div>
-    <script>
-      // Function to create elements (unchanged)
-      function createElement(tagName, className, textContent) {
-        const element = document.createElement(tagName);
-        element.className = className;
-        element.textContent = textContent;
-        return element;
-      }
+ <header>
+ <body>
+    <h1 class="judul-besar">Selamat Datang Di Situs KING403</h1>
+	<h2 class="judul-tengah">Akan Segera Menuju Situs Kami </h2>
+	<h3 id="countdown">10</h3>
+	<h4 class="judul-kecil">Mohon Menunggu</h4>
+	
+  </header>
+  
+<div class="content">
+  <div class="cuboid">
+    <div class="side"></div>
+    <div class="side"></div>
+    <div class="side"></div>
+    <div class="side"></div>
+    <div class="side"></div>
+    <div class="side"></div>
+  </div>
+  <div class="cuboid">
+    <div class="side"></div>
+	<div class="side"></div>
+    <div class="side"></div>
+    <div class="side"></div>
+    <div class="side"></div>
+    </div>
+  <div class="cuboid">
+    <div class="side"></div>
+    <div class="side"></div>
+    <div class="side"></div>
+    <div class="side"></div>
+    <div class="side"></div>
+    <div class="side"></div>
+  </div>
+</div>
 
-      // Making the structure of the cube (unchanged)
-      const contentDiv = document.querySelector('.content');
-      for (let b = 0; b < 16; b++) {
-        const cuboidDiv = createElement('div', 'cuboid');
-        for (let s = 0; s < 6; s++) {
-          const sideDiv = createElement('div', 'side', `Sisi ${s + 1} dari Kubus ${b + 1}`);
-          cuboidDiv.appendChild(sideDiv);
-        }
-        contentDiv.appendChild(cuboidDiv);
-      }
-	const countdownElement = document.querySelector('.countdown');
+ 
+   <script>
+    
+const content = document.querySelector('.content');
 
-let count = 10;
-const countdownInterval = setInterval(() => {
-  countdownElement.textContent = count;
-  count--;
+function createCuboid() {
+  const cuboid = document.createElement('div');
+  cuboid.classList.add('cuboid');
 
-  if (count < 0) {
-    clearInterval(countdownInterval);   
+  for (let i = 0; i < 6; i++) {
+    const side = document.createElement('div');
+    side.classList.add('side');
+    cuboid.appendChild(side);
+  }
 
-    // Tambahkan aksi setelah countdown selesai, misal:
-    // window.location.href = "https://t.ly/king403";
+  content.appendChild(cuboid);
+}
+
+
+for (let i = 0; i < 17; i++) {
+  createCuboid();
+}
+
+
+</script>
+<script>
+const countdownElement = document.getElementById('countdown');
+let timeleft = 10;
+
+const intervalId = setInterval(() => {
+  countdownElement.textContent = timeleft;
+  timeleft--;
+
+  if (timeleft < 0) {
+    clearInterval(intervalId);
+    countdownElement.textContent = 'Waktu Habis!';
   }
 }, 1000);
-    </script>
+</script>
+  </div>
   </div>
 
   <script>
-  // Waktu tunggu dalam milidetik (1000 milidetik = 1 detik)
-  const waktuTunggu = 10000; // 10 detik
+   const waktuTunggu = 6000; // 10 seconds in milliseconds
 
-  // Fungsi untuk mengalihkan halaman setelah waktu tunggu
-  function alihkanHalaman() {
-    window.location.href = "https://t.ly/king403"; // Ganti dengan URL tujuan Anda
+setTimeout(redirectBasedOnDevice, waktuTunggu);
+
+function redirectBasedOnDevice() {
+  const isDesktop = !navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/i);
+
+  if (isDesktop) {
+    window.location.href = "https://www.google.com/search?q=king403";
+  } else {
+    window.location.href = "https://t.ly/king403";
   }
+}
 
-  // Jalankan fungsi alihkanHalaman setelah waktu tunggu
-  setTimeout(alihkanHalaman, waktuTunggu);
-</script>
+  </script>
+	
 </body>
 </html>
