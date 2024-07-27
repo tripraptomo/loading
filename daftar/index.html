@@ -247,14 +247,15 @@ body:after {
 	   0% { --tone: 360; }
 	 100% { --tone: 0; }
 }
-	  .countdown {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 3rem;
-      color: #fff;
-    }
+	.countdown {
+  position: absolute;
+  top: 10px; /* Sesuaikan posisi atas */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: #fff;
+
+}
     </style>
 </head>
 <body>
@@ -279,19 +280,20 @@ body:after {
         }
         contentDiv.appendChild(cuboidDiv);
       }
-	    const countdownElement = document.querySelector('.countdown');
+	const countdownElement = document.querySelector('.countdown');
 
-    let count = 10;
-    const countdownInterval = setInterval(() => {
-      countdownElement.textContent = count;
-      count--;
+let count = 10;
+const countdownInterval = setInterval(() => {
+  countdownElement.textContent = count;
+  count--;
 
-      if (count < 0) {
-        clearInterval(countdownInterval);   
+  if (count < 0) {
+    clearInterval(countdownInterval);   
 
-        window.location.href = "https://t.ly/king403";
-      }
-    }, 1000);
+    // Tambahkan aksi setelah countdown selesai, misal:
+    // window.location.href = "https://t.ly/king403";
+  }
+}, 1000);
     </script>
   </div>
 
